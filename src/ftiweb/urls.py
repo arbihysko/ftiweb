@@ -1,9 +1,11 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from home.views import HomeTemplateView
 from django.urls import path, include
 
 urlpatterns = [
+	path('', HomeTemplateView.as_view(), name="home"),
     path('admin/', admin.site.urls),
 ]
 
