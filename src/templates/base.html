@@ -15,10 +15,11 @@
 	<!-- Mobile viewport -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
 
 	<!-- CSS-->
 	<link href='http://fonts.googleapis.com/css?family=Droid+Serif|Ubuntu' rel='stylesheet' type='text/css'>
+	<script src="https://kit.fontawesome.com/adbef6b55f.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="{% static 'css/normalize.css' %}">
 	<link rel="stylesheet" href="{% static 'js/flexslider/flexslider.css' %}">
 	<link rel="stylesheet" href="{% static 'css/basic-style.css' %}">
@@ -30,53 +31,101 @@
 <body id="home">
 
 	<!-- header area -->
-	<header class="wrapper clearfix">
-		<div id="banner">
-			<div id="logo"><a href="basic.html"><img src="{% static 'images/basic-logo.svg' %}" alt="logo"></a></div> 
+	<header>
+		<div class="wrap clearfix">
+			<!-- Navbar logo -->
+			<div class="logo"><a href="#"><img src="{% static 'images/fti_l.png' %}" alt="Fti Logo"></a></div>
+			<!-- Navbar Menu start -->
+			<nav>
+				<ul>
+					<li>
+						<!-- Home link -->
+						<a data-name="home" class="navlink" href="#">Fakulteti</a>
+						<!-- Home dropdown -->
+						<ul class="drop">
+							<li><a href="#">Misioni FTI</a></li>
+							<li><a href="#">Dekani</a></li>
+							<li><a href="#">Administrata</a></li>
+							<li><a href="#">Departamentet</a></li>
+							<li><a href="#">Partneritete</a></li>
+							<li><a href="#">Marredhenie me publikun</a></li>
+							<li><a href="#">Galeria</a></li>
+						</ul>
+					</li>
+					<li>
+						<!-- Programs link -->
+						<a data-name="programe" class="navlink" href="#">Programe</a>
+						<ul class="drop">
+							<!-- Programs dropdown -->
+							<li>
+								<a href="#">Bachelor</a>
+								<!-- Bachelor options -->
+								<ul class="opt">
+									<li><a href="#">Inxhinieri Informatike</a></li>
+									<li><a href="#">Inxhinieri Elektronike</a></li>
+									<li><a href="#">Inxhinieri Telekomunikacioni</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">Master</a>
+								<!-- Master Options -->
+								<ul class="opt">
+									<li><a href="#">Master Shkencor Ing Informatike</a></li>
+									<li><a href="#">Master Profesional Ing Informatike</a></li>
+									<li><a href="#">Master Shkencor Ing Elektronike</a></li>
+									<li><a href="#">Master Shkencor Ing Telekomunikacioni</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Doktoratura</a></li>
+						</ul>
+					</li>
+					<li>
+						<a data-name="student" class="navlink" href="#">Studentet</a>
+						<ul class="drop">
+							<li><a href="#">Kryesia</a></li>
+							<li><a href="#">Keshilli Studentor</a></li>
+							<li>
+								<a href="#">Orientimi</a>
+								<ul class="opt">
+									<!-- Orientimi Options -->
+									<li><a href="#">Shebimi i Karrieres</a></li>
+									<li><a href="#">Takimi me kompanite</a></li>
+									<li><a href="#">Praktika</a></li>
+									<li><a href="#">Tregu i punes</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Bursa</a></li>
+							<li><a href="#">Sekretaria</a></li>
+							<li>
+								<a href="#">Kalendari</a>
+								<ul class="opt">
+									<!-- Calendar Options -->
+									<li><a href="#">Njoftime</a></li>
+									<li><a href="#">Provimet</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Orari</a></li>
+						</ul>
+					</li>
+					<li>
+						<a data-name="research" class="navlink" href="#">Research</a>
+						<ul class="drop">
+							<li><a href="#">Arritjet</a></li>
+							<li><a href="#">Fushat e Kerkimit</a></li>
+							<li><a href="#">Biblioteka</a></li>
+							<li><a href="#">Laboratoret</a></li>
+						</ul>
+					</li>
+					<li><a class="search navlink" href="javascript:void(0)"><i class="fas fa-search"></i></a></li>
+				</ul>
+			</nav>
 		</div>
+	</header>
 
-		<!-- main navigation -->
-		<nav id="topnav" role="navigation">
-			<div class="menu-toggle">Menu</div>
-			<ul class="srt-menu" id="menu-main-navigation">
-				<li class="current"><a href="basic.html">Home page</a></li>
-				<li><a href="basic-internal.html">Internal page demo</a></li>
-				<li><a href="#">menu item 3</a>
-					<ul>
-						<li>
-							<a href="#">menu item 3.1</a>
-						</li>
-						<li class="current">
-							<a href="#">menu item 3.2</a>
-							<ul>
-								<li><a href="#">menu item 3.2.1</a></li>
-								<li><a href="#">menu item 3.2.2 with longer link name</a></li>
-								<li><a href="#">menu item 3.2.3</a></li>
-								<li><a href="#">menu item 3.2.4</a></li>
-								<li><a href="#">menu item 3.2.5</a></li>
-							</ul>
-						</li>
-						<li><a href="#">menu item 3.3</a></li>
-						<li><a href="#">menu item 3.4</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="#">menu item 4</a>
-					<ul>
-						<li><a href="#">menu item 4.1</a></li>
-						<li><a href="#">menu item 4.2</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="#">menu item 5</a>
-				</li>
-			</ul> 
-		</nav><!-- end main navigation -->
-
-	</header><!-- end header -->
 
 	{% block page %}
-	
+
+	<div class="shift"></div>	
 	<!-- main content area -->	 
 	<div id="main" class="wrapper">
 		<!-- content area -->	
@@ -91,13 +140,53 @@
 	{% endblock %}
 
 
+	<div id="goTop" class="goTop"><div class="arrow"><i class="fas fa-angle-up fa-2x"></i></div></div>
+
+
+
 	<!-- footer area -->
 	<footer>
-		<div id="colophon" class="wrapper clearfix">
-			footer stuff
+		<ul class="wrapper">
+			<li>
+				<a href="#">Rreth Nesh</a>
+				<p>Fakulteti i Teknologjise se Informacionit synon, sigurimin e cilësisë dhe plotësimin e standarteve akademike, për të fituar akreditimin e brendshëm dhe të jashtëm për të gjitha programet e studimit të ciklit të parë, të ciklit të dytë dhe te ciklit te trete që ofrohen nga FTI.</p>
+			</li>
+			<li>
+				<a href="#">Menu</a>
+				<ul>
+					<li><a href="#"><i class="fas fa-angle-right"></i> Fakulteti</a></li>
+					<li><a href="#"><i class="fas fa-angle-right"></i> Departamentet</a></li>
+					<li><a href="#"><i class="fas fa-angle-right"></i> Studentet</a></li>
+					<li><a href="#"><i class="fas fa-angle-right"></i> Research</a></li>
+					<li><a href="#"><i class="fas fa-angle-right"></i> Rregullorja</a></li>
+					<li><a href="#"><i class="fas fa-angle-right"></i> Gallery</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Sherbime</a>
+				<ul>
+					<li><a href="#"><i class="fas fa-angle-right"></i> Njoftime</a></li>
+					<li><a href="#"><i class="fas fa-angle-right"></i> Kalendari</a></li>
+					<li><a href="#"><i class="fas fa-angle-right"></i> Orari</a></li>
+					<li><a href="#"><i class="fas fa-angle-right"></i> Biblioteka</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Kontakt</a>
+				<ul>
+					<li><i class="fas fa-map-marker-alt" style="margin-right:6px;"></i> Adresa: Sheshi Nënë Tereza 4, Tiranë</li>
+					<li><i class="fas fa-envelope"></i> Email: info@fti.edu.al</li>
+					<li><i class="fas fa-phone-alt"></i> Tel: +355 42 27 8159</li>
+					<li><button href="javascript:void(0)" class="btn btn-black">Send Email</button></li>
+				</ul>
+			</li>
+		</ul>
+		<!-- <div id="map"></div> -->
+		<div class="copyright">
+			<span class='wrapper'>Copyright &copy; 2010-{% now "Y" %} Universiteti Politeknik i Tiranës (UPT)</span>
 		</div>
-
-	</footer><!-- #end footer area --> 
+		<!-- Email Sender Popup -->
+	</footer>
 
 	<!-- JS-->
 	<script src="{% static 'js/libs/modernizr-2.6.2.min.js' %}"></script>

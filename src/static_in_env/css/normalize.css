@@ -101,7 +101,7 @@ body {
  */
 
 a:focus {
-    outline: thin dotted;
+    outline: none
 }
 
 /**
@@ -307,7 +307,8 @@ dd {
 menu,
 ol,
 ul {
-    padding: 0 0 0 40px;
+    padding-inline-start: 0;
+    list-style-type: none;
 }
 
 /**
