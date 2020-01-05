@@ -100,7 +100,7 @@ body {
  * Address `outline` inconsistency between Chrome and other browsers.
  */
 
-a:focus { outline: none; background: transparent !important; }
+a:focus { outline: none; }
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
