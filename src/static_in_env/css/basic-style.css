@@ -36,16 +36,29 @@ img{ max-width:100%; height:auto;}
 }
 
 .grid {
-	margin-bottom: 40px;
 	position: relative;
 	min-height: 1px;
 	padding-right: 15px;
 	padding-left: 15px;
 }
 
+.greeter {
+	margin-bottom: 80px;
+}
+
+.flexslider {
+	box-shadow: 0 0 5px 1px rgba(0,0,0,.2);
+}
+
 /*colors and backgrounds*/
 body{
 	background: #fff;
+}
+header{
+	background: #e8e8e8; /*Platinum*/
+}
+footer{
+	background: #465362ff;
 }
 
 /*HEADER*/
@@ -53,7 +66,6 @@ header {
 	position: fixed;
 	top: 0;
 	width: 100%;
-	background: #e5e6e4ff; /* platinium */
 	box-shadow: 0 1px 5px #0000004c;
 	z-index: 150;
 }
@@ -110,7 +122,6 @@ header .logo a {
 footer {
 	position: relative;
 	width: 100%;
-	background-color: #465362ff;
 }
 footer>ul {
 	display: flex;
@@ -154,6 +165,16 @@ footer ul li:last-child ul li:last-child {
 footer ul li:last-child {
 	color: #222;
 	text-decoration: none;
+}
+footer ul li:first-child {
+	flex: 1;
+}
+footer ul .gather {
+	flex: 7;
+	display: flex;
+}
+.gather li {
+	flex: 1;
 }
 
 .copyright {
@@ -251,7 +272,7 @@ footer ul li:last-child {
 		/*visibility: hidden;*/
 		max-height: 0;
 		overflow: hidden;
-		transition: max-height .2s ease-out;
+		transition: max-height .5s ease-out;
 	}
 	nav ul li ul li a {
 		padding: 5px 8%;
@@ -264,7 +285,7 @@ footer ul li:last-child {
 	}
 	.dropit {
 		/*visibility: visible;*/
-		max-height: 300px;
+		max-height: 450px;
 	}
 	.shift {
 		height: 80px;
@@ -275,6 +296,9 @@ footer ul li:last-child {
 		padding: 40px 0;
 		flex-direction: column;
 	}
+	.gather {
+		flex-direction: column;
+	}
 
 	.grid {
 		padding-right: 0px;
@@ -283,8 +307,23 @@ footer ul li:last-child {
 }
 
 /*LARGER MOBILE DEVICES*/
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 481px) and (max-width: 999px) {
+	nav ul li a {
+		display: block;
+		padding: 10px 4%;
+		width: 30%;
+	}
+	nav ul li ul li a {
+		padding-left: 6%;
+	}
+	nav ul li ul li ul li a {
+		padding-left: 8%; 
+	}
 
+
+	.gather {
+		flex-direction: row;
+	}
 }
 
 /*TABLET & SMALLER LAPTOPS*/
@@ -404,10 +443,11 @@ footer ul li:last-child {
 	.grid {
 		float: left;
 		display: block;
+		margin-bottom: 40px;
 	}
-	.rightfloat{float:right;}
+	/*.rightfloat{float:right;}*/
 
-	#hero [class*="grid_"] { margin-bottom:-20px;}
+	.greeter [class*="grid_"] { margin-bottom:-20px;}
 
 	.goTop:hover {
 		background-color: #c20114CC;

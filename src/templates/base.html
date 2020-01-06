@@ -144,18 +144,26 @@
 
 	{% endblock %}
 
-
-	<div id="goTop" class="goTop"><div class="arrow"><i class="fas fa-angle-up fa-2x"></i></div></div>
+	<!-- goTop link -->
+	<div id="goTop" class="goTop">
+		<div class="arrow">
+			<i class="fas fa-angle-up fa-2x"></i>
+		</div><!-- end arrow -->
+	</div><!-- end #goTop -->
 
 
 
 	<!-- footer area -->
 	<footer>
+		<!-- footer content -->
 		<ul class="wrapper">
+			<!-- Rreth nesh element -->
 			<li>
 				<a href="#"><h1>Rreth Nesh</h1></a>
 				<p>Fakulteti i Teknologjise se Informacionit synon, sigurimin e cilësisë dhe plotësimin e standarteve akademike, për të fituar akreditimin e brendshëm dhe të jashtëm për të gjitha programet e studimit të ciklit të parë, të ciklit të dytë dhe te ciklit te trete që ofrohen nga FTI.</p>
-			</li>
+			</li><!-- end rreth nesh -->
+			<!-- Menu elemet -->
+			<div class="gather">
 			<li>
 				<a href="#"><h1>Menu</h1></a>
 				<ul>
@@ -166,7 +174,8 @@
 					<li><a href="#">Rregullorja</a></li>
 					<li><a href="#">Gallery</a></li>
 				</ul>
-			</li>
+			</li><!-- end Menu -->
+			<!-- Sherbimet element -->
 			<li>
 				<a href="#"><h1>Sherbime</h1></a>
 				<ul>
@@ -175,7 +184,8 @@
 					<li><a href="#">Orari</a></li>
 					<li><a href="#">Biblioteka</a></li>
 				</ul>
-			</li>
+			</li><!-- end of Sherbimet -->
+			<!-- Kontakt element -->
 			<li>
 				<a href="#"><h1>Kontakt</h1></a>
 				<ul>
@@ -184,21 +194,26 @@
 					<li><i class="fas fa-phone-alt"></i> Tel: +355 42 27 8159</li>
 					<li><button href="javascript:void(0)" class="btn btn-black">Send Email</button></li>
 				</ul>
-			</li>
-		</ul>
+			</li><!-- end Kontakt -->
+			</div>
+		</ul><!-- end ul.wrapper -->
+
 		<!-- <div id="map"></div> -->
+
+		<!-- Copyright -->
 		<div class="copyright">
 			<span class='wrapper'>Copyright &copy; 2010-{% now "Y" %} Universiteti Politeknik i Tiranës (UPT)</span>
-		</div>
+		</div><!-- end copyright -->
 		<!-- Email Sender Popup -->
 	</footer>
+	<!-- end footer -->
 
 	<!-- JS-->
 	<script src="{% static 'js/libs/modernizr-2.6.2.min.js' %}"></script>
 
 	<!-- jQuery -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	<script>window.jQuery</script>
+	<!-- <script>window.jQuery</script> -->
 
 	<script defer src="{% static 'js/flexslider/jquery.flexslider-min.js' %}"></script>
 
