@@ -103,7 +103,6 @@ header .logo a {
 	justify-content: center;
 	line-height: 0;
 	font-size: .7em;
-	bottom: 4%;
 	right: 4%;
 	width: 40px;
 	height: 40px;
@@ -304,6 +303,10 @@ footer ul .gather {
 		padding-right: 0px;
 		padding-left: 0px;
 	}
+
+	.goTop {
+		bottom: 12px;
+	}
 }
 
 /*LARGER MOBILE DEVICES*/
@@ -323,6 +326,10 @@ footer ul .gather {
 
 	.gather {
 		flex-direction: row;
+	}
+
+	.goTop{
+		bottom: 35px;
 	}
 }
 
@@ -448,6 +455,10 @@ footer ul .gather {
 	/*.rightfloat{float:right;}*/
 
 	.greeter [class*="grid_"] { margin-bottom:-20px;}
+
+	.goTop {
+		bottom: 40px;
+	}
 
 	.goTop:hover {
 		background-color: #c20114CC;
