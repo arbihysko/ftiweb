@@ -7,29 +7,38 @@ $(document).ready(function(){
 
 	// Menu toggle
 	$('#menu_toggle').on('click', function(e){
-		if(window.innerWidth <= 480){
-			if(!$(this).hasClass('toggled')){
-				$(this).addClass("toggled");
-				($(this)[0]).innerHTML = "<i class='fas fa-times'></i>";
-				$('header nav').animate({left: "-=100%"}, 150);
-			} else {
-				$(this).removeClass("toggled");
-				($(this)[0]).innerHTML = "<i class='fas fa-bars'></i>";
-				$('header nav').animate({left: "+=100%"}, 150);
-			}
+		e.preventDefault();
+		if(!$(this).hasClass('toggled')){
+			$(this).addClass("toggled");
+			($(this)[0]).innerHTML = "<i class='fas fa-times'></i>";
+			$('header nav').addClass('nav_toggled');
+			if (window.innerWidth > 481)
+				$('.wrapper').addClass('wrapper_toggled');
 		} else {
-			if(!$(this).hasClass('toggled')){
-				$(this).addClass("toggled");
-				($(this)[0]).innerHTML = "<i class='fas fa-times'></i>";
-				$('header nav').animate({left: "-=30%"}, 150);
-				$('.wrapper').animate({marginRight: "+=30%", marginLeft: "4%", width: "-=30%"}, 150);
-			} else {
-				$(this).removeClass("toggled");
-				($(this)[0]).innerHTML = "<i class='fas fa-bars'></i>";
-				$('header nav').animate({left: "+=30%"}, 150);
-				$('.wrapper').animate({marginRight: "-=30%", marginLeft: "4%", width: "+=30%"}, 150);
-			}
+			$(this).removeClass("toggled");
+			($(this)[0]).innerHTML = "<i class='fas fa-bars'></i>";
+			$('header nav').removeClass('nav_toggled');
+			$('.wrapper').removeClass('wrapper_toggled');
 		}
+	});
+
+	$('nav>ul>li>a').on('click', function(e){
+		e.preventDefault();
+	});
+
+	$('.search').on('mouseover', function(){
+		setTimeout(function() {$('.search-popup input').focus()}, 200);
+	});
+
+	$('.search_tog').on('click', function(e){
+		e.preventDefault();
+		$('.menu_toggle').animate({opacity:0}, 200);
+		setTimeout(function(){$('.search-popup').addClass('searchPop'),200});
+		setTimeout(function() {$('.search-popup input').focus()}, 400);
+	});
+	$('.search-popup i').on('click', function() {
+		$('.search-popup').removeClass('searchPop');
+		setTimeout(function(){$('.menu_toggle').animate({opacity:1}, 200),200});
 	});
 
 	if (window.innerWidth <= 1024) {

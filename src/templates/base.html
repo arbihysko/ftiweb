@@ -37,7 +37,7 @@
 			<div class="logo"><a href="#"><img src="{% static 'images/fti_l.png' %}" alt="Fti Logo"></a></div>
 			<!-- menu toggle -->
 			<ul class="menu_toggle">
-				<li><a class="search" href="#"><i class="fas fa-search"></i></a></li>
+				<li><a class="search_tog" href="#"><i class="fas fa-search"></i></a></li>
 				<li><a id="menu_toggle" href="#"><i class="fas fa-bars"></i></a></li>
 			</ul>
 			<!-- Navbar Menu start -->
@@ -121,7 +121,17 @@
 							<li><a href="#">Laboratoret</a></li>
 						</ul>
 					</li>
-					<li><a class="search navlink" href="javascript:void(0)"><i class="fas fa-search"></i></a></li>
+					<li>
+						<a class="search navlink" href="javascript:void(0)"><i class="fas fa-search"></i></a>
+						<!-- search popup -->
+						<div class="search-popup">
+							<form action="#" method="GET">
+								<input type="text" placeholder="Kerko..">
+								<i class="fas fa-times"> </i>
+							</form>
+						</div>
+						<!-- end of Search -->
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -164,37 +174,37 @@
 			</li><!-- end rreth nesh -->
 			<!-- Menu elemet -->
 			<div class="gather">
-			<li>
-				<a href="#"><h1>Menu</h1></a>
-				<ul>
-					<li><a href="#">Fakulteti</a></li>
-					<li><a href="#">Departamentet</a></li>
-					<li><a href="#">Studentet</a></li>
-					<li><a href="#">Research</a></li>
-					<li><a href="#">Rregullorja</a></li>
-					<li><a href="#">Gallery</a></li>
-				</ul>
-			</li><!-- end Menu -->
-			<!-- Sherbimet element -->
-			<li>
-				<a href="#"><h1>Sherbime</h1></a>
-				<ul>
-					<li><a href="#">Njoftime</a></li>
-					<li><a href="#">Kalendari</a></li>
-					<li><a href="#">Orari</a></li>
-					<li><a href="#">Biblioteka</a></li>
-				</ul>
-			</li><!-- end of Sherbimet -->
-			<!-- Kontakt element -->
-			<li>
-				<a href="#"><h1>Kontakt</h1></a>
-				<ul>
-					<li><i class="fas fa-map-marker-alt" style="margin-right:6px;"></i> Adresa: Sheshi Nënë Tereza 4, Tiranë</li>
-					<li><i class="fas fa-envelope"></i> Email: info@fti.edu.al</li>
-					<li><i class="fas fa-phone-alt"></i> Tel: +355 42 27 8159</li>
-					<li><button href="javascript:void(0)" class="btn btn-black">Send Email</button></li>
-				</ul>
-			</li><!-- end Kontakt -->
+				<li>
+					<a href="#"><h1>Menu</h1></a>
+					<ul>
+						<li><a href="#">Fakulteti</a></li>
+						<li><a href="#">Departamentet</a></li>
+						<li><a href="#">Studentet</a></li>
+						<li><a href="#">Research</a></li>
+						<li><a href="#">Rregullorja</a></li>
+						<li><a href="#">Gallery</a></li>
+					</ul>
+				</li><!-- end Menu -->
+				<!-- Sherbimet element -->
+				<li>
+					<a href="#"><h1>Sherbime</h1></a>
+					<ul>
+						<li><a href="#">Njoftime</a></li>
+						<li><a href="#">Kalendari</a></li>
+						<li><a href="#">Orari</a></li>
+						<li><a href="#">Biblioteka</a></li>
+					</ul>
+				</li><!-- end of Sherbimet -->
+				<!-- Kontakt element -->
+				<li>
+					<a href="#"><h1>Kontakt</h1></a>
+					<ul>
+						<li><i class="fas fa-map-marker-alt" style="margin-right:6px;"></i> Adresa: Sheshi Nënë Tereza 4, Tiranë</li>
+						<li><i class="fas fa-envelope"></i> Email: info@fti.edu.al</li>
+						<li><i class="fas fa-phone-alt"></i> Tel: +355 42 27 8159</li>
+						<li><button href="javascript:void(0)" class="btn btn-black">Send Email</button></li>
+					</ul>
+				</li><!-- end Kontakt -->
 			</div>
 		</ul><!-- end ul.wrapper -->
 

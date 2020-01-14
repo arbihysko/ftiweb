@@ -33,6 +33,7 @@ img{ max-width:100%; height:auto;}
 .wrapper{
 	width: 92%; 
 	margin: 0 auto;
+	transition: .15s;
 }
 
 .grid {
@@ -89,6 +90,7 @@ header .logo a {
 	color: #e5e6e4 !important; /* platinium */
 }
 
+/* SHIFTING CONTENT DOWN */
 .shift {
 	position: relative;
 	top: 0;
@@ -151,10 +153,6 @@ footer ul li ul li {
 	text-shadow: none;
 	text-transform: none;
 }
-/*footer ul li ul li a{
-	text-decoration: underline;
-	text-underline-position: under;
-}*/
 
 /* contact information */
 footer ul li:last-child ul li:last-child {
@@ -227,6 +225,9 @@ footer ul .gather {
 		float: right;
 		color: #333;
 	}
+	.nav_toggled {
+		left: 4%;
+	}
 	.menu_toggle li a {
 		font-size: 1.5em;
 		padding: 15px;
@@ -241,7 +242,7 @@ footer ul .gather {
 		margin-left: 10px;
 	}
 	/*hide the search*/
-	header nav>ul>li:last-child {
+	header nav>ul>li:last-child a.search{
 		display: none;
 	}
 	header nav {
@@ -255,6 +256,7 @@ footer ul .gather {
 		overflow: scroll;
 		height: calc(100% - 70px);
 		left: 104%;
+		transition: .15s;
 	}
 	nav ul li {
 		width: 100%;
@@ -284,8 +286,48 @@ footer ul .gather {
 	}
 	.dropit {
 		/*visibility: visible;*/
-		max-height: 450px;
+		max-height: 460px;
 	}
+
+	/*SEARCH POPUP*/
+	.search-popup {
+		position: fixed;
+		visibility: hidden;
+		opacity: 0;
+		background: #e8e8e8;
+		width: 100%;
+		padding: 15px 4%;
+		top: 0;
+		left: 0%;
+		height: 70px;
+		transition: .2s;
+	}
+	.searchPop {
+		visibility: visible;
+		opacity: 1;
+	}
+	.search-popup form {
+		width: 100%;
+		line-height: 0;
+		display: flex;
+		height: 100%;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.search-popup input {
+		width: 90%;
+		font: inherit;
+		color: #666;
+		border:none;
+		outline: none;
+		padding: 10px 10px;
+		border-radius: 10px;
+	}
+	.search-popup i {
+		font-size: 1.3em;
+	}
+
 	.shift {
 		height: 80px;
 	}
@@ -311,19 +353,40 @@ footer ul .gather {
 
 /*LARGER MOBILE DEVICES*/
 @media only screen and (min-width: 481px) and (max-width: 999px) {
+	.wrapper {
+		width: 84%;
+	}
+
 	nav ul li a {
 		display: block;
-		padding: 10px 4%;
+		padding: 10px 2%;
 		width: 30%;
 	}
 	nav ul li ul li a {
-		padding-left: 6%;
+		padding-left: 3%;
+		padding-right: 3%;
 	}
 	nav ul li ul li ul li a {
-		padding-left: 8%; 
+		padding-left: 5%; 
+		padding-right: 5%; 
 	}
 
+	.nav_toggled {
+		left: calc(100% - 24%);
+		box-shadow: 0 3px 5px rgba(0,0,0,.5)
+	}
+	.wrapper_toggled {
+		width: 64%;
+		margin-right: 32%;
+		margin-left: 4%; 
+	}
 
+	.search-popup {
+		width: 80%;
+		right: 0;
+		left: 20%;
+	}
+	
 	.gather {
 		flex-direction: row;
 	}
@@ -366,21 +429,12 @@ footer ul .gather {
 		padding: 40px 30px;
 		font-size: 20px;
 		color: inherit;
-		transition: .4s;
+		transition: .2s ease-out;
 	}
 	nav ul li:hover>a {
 		background-color: #465362;
 		color: #e5e6e4;
 	} 
-	/* The search link styling */
-	nav ul li a.search {
-		transition: .2s;
-		color: #222;
-	}
-	nav ul li a.search:hover {
-		background-color: inherit;
-		color: #c20114; /* Harvard Scarlet */
-	}
 	/* The dropdown menu */
 	nav ul li ul {
 		margin-top: 1em;
@@ -422,6 +476,63 @@ footer ul .gather {
 		opacity: 1;
 	}
 
+	/*SEARCH POPUP*/
+	.search-popup {
+		position: absolute;
+		right: 0;
+		margin-top: 1.5em;
+		padding: 20px 2%;
+		background-color: #e8e8e8;
+		border-radius: 7px;
+		box-shadow: 0 2px 4px #0000004c;
+		transition: .3s;
+		opacity: 0;
+		visibility: hidden;
+	}
+	nav ul li:last-child:hover .search-popup {
+		visibility: visible;
+		margin-top: 10px;
+		opacity: 1;
+	}
+	.search-popup input {
+		width: 400px;
+		padding: 5px 10px;
+		outline: none;
+		border: none;
+		border-bottom: 2px solid #46536240;
+		color: #333;
+		font: inherit;
+		background: inherit;
+		transition: .25s;
+	}
+	.search-popup input:focus {
+		border-bottom: 2px solid #465362
+	}
+	.search-popup:after {
+		content: "";
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		top: -5px;
+		right: 30px;
+		transform: rotateZ(45deg);
+		background: inherit;
+		z-index: -1;
+	}
+	.search-popup:before {
+		content: "";
+		position: absolute;
+		top: -10px;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: transparent;
+		z-index: -1;
+	}
+	.search-popup i {
+		display: none;
+	}
+
 	.shift {
 		height: 150px;
 	}
@@ -457,7 +568,7 @@ footer ul .gather {
 	.greeter [class*="grid_"] { margin-bottom:-20px;}
 
 	.goTop {
-		bottom: 40px;
+		bottom: 20px;
 	}
 
 	.goTop:hover {
