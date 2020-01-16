@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'js/flexslider/flexslider.css' %}">
+{% endblock %}
 {% block page %}
 <!-- greeter area -->
 <div class="shift"></div>
@@ -8,12 +11,12 @@
 	<div class="wrapper">
 		<div class="row"> 
 			<div class="grid grid_5">
-				<h1>Simple Responsive Template</h1>
-				<p>...is a template for responsive web design. A small set of tools and best practices that allows web designers to build responsive websites faster. Websites built with Simple Responsive Template will be optimized for screen widths between 320px and anything. Resize your browser to check it out.
+				<h1>Fakulteti i Teknologjise se Informacionit</h1>
+				<p>
+					Fakulteti i Teknologjisë së Informacionit (FTI) është një nga njësitë kryesore të Universitetit Politeknik të Tiranës (UPT). UPT është Institucion Publik i Arsimit të Lartë, me qendër në Tiranë, i cili shtrin aktivitetin e tij mësimor dhe shkencor brenda kufijve të Republikës së Shqipërisë, ofron studime me kohë të plotë në tre cikle dhe synon të përgatisë specialistë dhe shkencëtarë në fushat inxhinierike.
 				</p>
-				<p><a href="#" class="buttonlink">CALL TO ACTION</a> <a href="#" class="buttonlink">ONE MORE</a></p>
 			</div>
-			<div class="grid grid_7 rightfloat">
+			<div class="grid grid_7">
 				<div class="flexslider">
 					<ul class="slides">
 						<li>
@@ -49,26 +52,114 @@
 	
 	<!-- content area -->	
 	<section id="content" class="wide-content">
-		<div class="row">	
-			<div class="grid grid_4">
-				<h1 class="first-header">Brazil!</h1>
-				<img src="{% static 'images/basic-pic1.jpg' %}" />
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-			</div>
+		<div class="row depts clearfix">
+			<a href="#" class="grid grid_4">
+				<div class="thumbnail">
+					<img src="{% static 'images/chip.jpg' %}" />
+					<h1 class="first-header">DET</h1>
+					<p>
+						Departamenti i Elektronikës dhe Telekomunikacionit (DET) është vazhdim i Departamentit të Elektronikës dhe përgatit inxhinierë në inxhinieri elektronike dhe inxhinieri e telekomunikacioneve.
+					</p>
+				</div>
+			</a>
+
+			<a href="#" class="grid grid_4">
+				<div class="thumbnail">
+					<img src="{% static 'images/computer.jpg' %}" />
+					<h1 class="first-header">DII</h1>
+					<p>
+						Departamenti i Inxhinierisë Informatike (DII) është vazhdim i Seksionit të Inxhinierisë së Kompjuterave i Departamentit të Elektronikës dhe përgatit inxhinierë në inxhinieri informatike.
+					</p>
+				</div>
+			</a>
 			
-			<div class="grid grid_4">
-				<h1 class="first-header">Mexico!</h1>
-				<img src="{% static 'images/basic-pic2.jpg' %}" />
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-			</div>
-			
-			<div class="grid grid_4">
-				<h1 class="first-header">US!</h1>
-				<img src="{% static 'images/basic-pic3.jpg' %}" />
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-			</div>
+			<a href="#" class="grid grid_4">
+				<div class="thumbnail">
+					<img src="{% static 'images/research.jpg' %}" />
+					<h1 class="first-header">DBI</h1>
+					<p>
+						Departamenti i Bazave të Informatikës (DBI),ish-Qendra për Kërkim dhe Zhvillim, kryen veprimtari kërkimore zhvilluese të pavarur, si dhe në shërbim të procesit mësimor dhe studimeve pas universitare të FTI.
+					</p>
+				</div>
+			</a>
 		</div><!-- end row -->
-	</section><!-- end content area -->		 
+		<div class="calendar_wrapper" id="calendar">
+			<!-- calendar + events -->
+			<div class="events">
+				<!-- calendar div -->
+				<div class="calendar">
+					<!-- the year header in months -->
+					<ul class="months">
+						<li class='yeartab'>
+							<div data-move='prev' class='ym left'>
+								<span><i class='fas fa-chevron-left'></i></span>
+							</div>
+							<!-- year number -->
+							<div class='year'></div>
+							<div data-move='next' class='ym right'>
+								<span><i class='fas fa-chevron-right'></i></span>
+							</div>
+						</li>
+					</ul> <!-- year header end -->
+					<!-- the background image -->
+					<img alt="month_bg">
+					<!-- the main header of calendar -->
+					<div class="header">
+						<div data-move="prev" class="mc left"><span><i class="fas fa-chevron-left"></i></span></div>
+						<!-- month number -->
+						<div class="month"></div>
+						<div data-move="next" class="mc right"><span><i class="fas fa-chevron-right"></i></span></div>					
+					</div> <!-- end of the header -->
+					<div class="year"></div> <!-- year number -->
+					<!-- starting body of the calendar -->
+					<div class="body">
+						<!-- week days -->
+						<ul class="day weekdays">
+							<li>H</li>
+							<li>M</li>
+							<li>M</li>
+							<li>E</li>
+							<li>P</li>
+							<li>Sh</li>
+							<li>D</li>
+						</ul> <!-- end of weekdays -->
+						<ul class="day days"></ul><!-- the days -->
+					</div> <!-- end of calendar body -->
+				</div> <!-- end of calendar -->
+
+				<div class="articles">
+					<ul class="heading">
+						<li><a href="#">Postimet e sotme</a></li>
+						<li><a href="#">Me te rejat</a></li>
+						<li><a href="#">Te gjitha</a></li>
+					</ul>
+					<div class="article-gr">
+						<!-- {% for event in event_list %}-->
+						<div class="article">
+							<div class="date-pub">
+								<div class="date">20</div>
+								<div class="dt-gr">
+									<div class="month">Gusht</div>
+									<div class="year">2020</div>
+								</div>
+							</div>
+							<div class="art-body">
+								<div class="departament"><a href="#">DII</a></div>
+								<hr>
+								<div class="art-title"><a href="#">the title</a></div>
+								{% if event.content %}<div class="description">{{ event.content }}</div>{% endif %}	
+							</div>
+						</div>
+						<!-- {% endfor %} -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- end content area -->	
 </div><!-- #end div #main .wrapper -->
 
+{% endblock %}
+{% block scripts %}
+<script defer src="{% static 'js/flexslider/jquery.flexslider-min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/calendar.js' %}"></script>
 {% endblock %}

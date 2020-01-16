@@ -289,9 +289,12 @@ sub {
 
 dl,
 menu,
-ol,
-ul {
+ol{
     margin: 1em 0;
+}
+
+ul {
+    margin: 0;
 }
 
 dd {
