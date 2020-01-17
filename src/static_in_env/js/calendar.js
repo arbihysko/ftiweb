@@ -31,13 +31,18 @@ $(function(){
 	function cImgIn(){
 		this.unanimate = function() {
 			$(".calendar img.Imgactive").removeClass("Imgactive"); // deactivate this image
-			$(".calendar .header, .calendar .body, .calendar .year").fadeOut(300); // fadeOut the body of the calendar
+			$(".calendar .body").addClass("hideCalBody");
+			$(".calendar .header, .calendar .year").fadeOut(300); // fadeOut the body of the calendar
 		};
 		this.animate = function() {
 			$(".calendar img")[0].src = imgLink[dt.getMonth()]; // set the src of the bg image for calendar
 			setTimeout(function(){
 				$(".calendar img")[0].classList.add("Imgactive"); // add the Imgactive class to the calendar img
-				setTimeout(function(){$(".calendar .header, .calendar .body, .calendar .year").fadeIn(200)}, 300); // fadeIn the body of the calendar
+
+				setTimeout(function(){
+					$(".calendar .header, .calendar .year").fadeIn(200);
+					$(".calendar .body").removeClass("hideCalBody");
+				}, 300); // fadeIn the body of the calendar
 			}, 50);
 		};
 	};
@@ -97,34 +102,34 @@ $(function(){
 	}
 
 	// ajax to get months data and more
-	// function ajaxGetCalendarEvent(url, time=0){
-	// 	$.ajax({
-	// 		url: window.location.origin + url,
-	// 		type: 'get',
-	// 		success: function(data){
-	// 			console.log($('.articles .heading li a')[0].href += '?month='+ (dt.getMonth()+1) + '&year=' + (dt.getYear()+1900));
-	// 			$(".article-gr").fadeOut(150);
-	// 			// wait for the calendar to be rendered
-	// 			setTimeout(function(){
-	// 				$('.article-gr')[0].innerHTML = prepareDataString(data); // display the events
-	// 				data = JSON.parse(data); // parse the data that came in JSON format
-	// 				for (var i = 0; i < data.length; i++) {
-	// 					// get the date of each event
-	// 					var dt_str = data[i].pub_date;
-	// 					var index = dt_str.indexOf("T");
-	// 					dt_str = dt_str.substr(0, index);
-	// 					// for each event the date on the calendar will have class hasEvent
-	// 					$(".days li[data-day='"+dt_str+"']").addClass('hasEvent');
-	// 				}
-	// 				$(".article-gr").fadeIn(200);
-	// 			}, time);
-	// 		},
-	// 		error: function(data){
-	// 			// the fail to get data function to be called
-	// 			console.log('fail: '+data);
-	// 		}
-	// 	})
-	// }
+	function ajaxGetCalendarEvent(url, time=0){
+		$.ajax({
+			url: window.location.origin + url,
+			type: 'get',
+			success: function(data){
+				console.log($('.articles .heading li a')[0].href += '?month='+ (dt.getMonth()+1) + '&year=' + (dt.getYear()+1900));
+				$(".article-gr").fadeOut(150);
+				// wait for the calendar to be rendered
+				setTimeout(function(){
+					$('.article-gr')[0].innerHTML = prepareDataString(data); // display the events
+					data = JSON.parse(data); // parse the data that came in JSON format
+					for (var i = 0; i < data.length; i++) {
+						// get the date of each event
+						var dt_str = data[i].pub_date;
+						var index = dt_str.indexOf("T");
+						dt_str = dt_str.substr(0, index);
+						// for each event the date on the calendar will have class hasEvent
+						$(".days li[data-day='"+dt_str+"']").addClass('hasEvent');
+					}
+					$(".article-gr").fadeIn(200);
+				}, time);
+			},
+			error: function(data){
+				// the fail to get data function to be called
+				console.log('fail: '+data);
+			}
+		})
+	}
 
 	// function to change the calendar
 	function animateCalendar(time, date = dt.getDate(), month = dt.getMonth(), yr = dt.getYear()) {
@@ -133,7 +138,7 @@ $(function(){
 		calendarTO = setTimeout(renderCalendar, time); // sets timeout for the calendar rendering
 		// get the months events and display them
 		url = "/api/calendar/?month="+(parseInt(month)+1)+"&year="+(parseInt(yr)+1900);
-		// ajaxGetCalendarEvent(url, time);
+		ajaxGetCalendarEvent(url, time);
 		
 	}
 
@@ -143,7 +148,7 @@ $(function(){
 		e.preventDefault();
 		url = this.getAttribute('href');
 		console.log(url);
-		// ajaxGetCalendarEvent(url);
+		ajaxGetCalendarEvent(url);
 	});
 
 	// event when clicking to change the month
@@ -164,7 +169,8 @@ $(function(){
 	// show the months of the year
 	$(".calendar .header .month").on("click", function() {
 		// fadeout the current calendar body
-		$(".calendar .header, .calendar .body, .calendar .year").fadeOut(300);
+		$(".calendar .body").addClass("hideCalBody");
+		$(".calendar .header, .calendar .year").fadeOut(300);
 		$(".calendar .months .year")[0].innerHTML = (dt.getYear()+1900); // set the current year
 		var mcells = ""; // month cells to be filled
 		for(i=0;i<12;i++){
@@ -191,23 +197,23 @@ $(function(){
 	});
 
 	// get events for the day when clicking on a day link
-	// $(".calendar .days").on('click', "li a", function(e){
-	// 	e.preventDefault();
-	// 	// console.log(this.getAttribute('href'));
-	// 	$.ajax({
-	// 		url: window.location.origin + "/api" + this.getAttribute('href'),
-	// 		type: 'get',
-	// 		success: function(data){
-	// 			$(".article-gr").fadeOut(150);
-	// 			setTimeout(function(){
-	// 				$('.article-gr')[0].innerHTML = prepareDataString(data);
-	// 				$(".article-gr").fadeIn(200);
-	// 			}, 150);
-	// 		},
-	// 		failure: function(data){
-	// 			console.log("fail")
-	// 		}
-	// 	})
-	// });
+	$(".calendar .days").on('click', "li a", function(e){
+		e.preventDefault();
+		// console.log(this.getAttribute('href'));
+		$.ajax({
+			url: window.location.origin + "/api" + this.getAttribute('href'),
+			type: 'get',
+			success: function(data){
+				$(".article-gr").fadeOut(150);
+				setTimeout(function(){
+					$('.article-gr')[0].innerHTML = prepareDataString(data);
+					$(".article-gr").fadeIn(200);
+				}, 150);
+			},
+			failure: function(data){
+				console.log("fail")
+			}
+		})
+	});
 
 })

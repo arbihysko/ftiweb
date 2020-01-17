@@ -20,16 +20,28 @@
 				<div class="flexslider">
 					<ul class="slides">
 						<li>
-							<img src="{% static 'images/basic-pic1.jpg' %}" />
-							<p class="flex-caption">Love Brazil !!! Sea view from Rio de Janeiro fort.</p>
+							<a href="#">
+								<div class="flex-img">
+									<img src="{% static 'images/upt_front_view.jpg' %}" />
+								</div>
+								<p class="flex-caption">Misioni i FTI</p>
+							</a>
 						</li>
 						<li>
-							<a href="http://www.prowebdesign.ro"><img src="{% static 'images/basic-pic2.jpg' %}" /></a>
-							<p class="flex-caption">El Arco Cabo Mexico. This image is wrapped in a link.</p>
+							<a href="http://www.prowebdesign.ro">
+								<div class="flex-img">
+									<img src="{% static 'images/karta_e_studentit.jpg' %}" />
+								</div>
+								<p class="flex-caption">Karta E Studentit</p>
+							</a>
 						</li>
 						<li>
-							<img src="{% static 'images/basic-pic3.jpg' %}" />
-							<p class="flex-caption">Arches National Park, Utah, Usa.</p>
+							<a href="#">
+								<div class="flex-img">
+									<img src="{% static 'images/graduation.jpg' %}" />
+								</div>
+								<p class="flex-caption">Programet</p>
+							</a>
 						</li>
 						<li>
 							<img src="{% static 'images/basic-pic4.jpg' %}" />
@@ -85,7 +97,7 @@
 		</div><!-- end row -->
 		<div class="calendar_wrapper" id="calendar">
 			<!-- calendar + events -->
-			<div class="events">
+			<div class="events clearfix">
 				<!-- calendar div -->
 				<div class="calendar">
 					<!-- the year header in months -->
@@ -127,14 +139,38 @@
 					</div> <!-- end of calendar body -->
 				</div> <!-- end of calendar -->
 
+				<!-- article divider -->
 				<div class="articles">
-					<ul class="heading">
-						<li><a href="#">Postimet e sotme</a></li>
-						<li><a href="#">Me te rejat</a></li>
-						<li><a href="#">Te gjitha</a></li>
-					</ul>
+					<!-- the article group -->
 					<div class="article-gr">
-						<!-- {% for event in event_list %}-->
+						<!-- article link -->
+						<a href="#">
+							<!-- one article -->
+							<div class="article">
+								<!-- publication date -->
+								<div class="date-pub">
+									<!-- date -->
+									<div class="date">20</div>
+									<!-- month and year -->
+									<div class="dt-gr">
+										<!-- month -->
+										<div class="month">Gusht</div>
+										<!-- year -->
+										<div class="year">2020</div>
+									</div>
+								</div><!-- end of publication date -->
+								<!-- article body -->
+								<div class="art-body">
+									<!-- department -->
+									<span class="departament">DII</span>
+									<!-- title of the article -->
+									<h1 class="art-title">the title</h1>
+									<!-- description of the article -->
+									<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ipsum, hic sint quia modi omnis. Illo tempore ipsa asperiores voluptatibus?</p>
+								</div> <!-- end of article body -->
+							</div> <!-- end of article -->
+						</a> <!-- end of article link -->
+						
 						<div class="article">
 							<div class="date-pub">
 								<div class="date">20</div>
@@ -145,14 +181,81 @@
 							</div>
 							<div class="art-body">
 								<div class="departament"><a href="#">DII</a></div>
-								<hr>
+								<!-- <hr> -->
 								<div class="art-title"><a href="#">the title</a></div>
-								{% if event.content %}<div class="description">{{ event.content }}</div>{% endif %}	
+								<div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ipsum, hic sint quia modi omnis. Illo tempore ipsa asperiores voluptatibus?</div>	
+							</div>
+						</div><div class="article">
+							<div class="date-pub">
+								<div class="date">20</div>
+								<div class="dt-gr">
+									<div class="month">Gusht</div>
+									<div class="year">2020</div>
+								</div>
+							</div>
+							<div class="art-body">
+								<div class="departament"><a href="#">DII</a></div>
+								<!-- <hr> -->
+								<div class="art-title"><a href="#">the title</a></div>
+								<div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ipsum, hic sint quia modi omnis. Illo tempore ipsa asperiores voluptatibus?</div>	
+							</div>
+						</div><div class="article">
+							<div class="date-pub">
+								<div class="date">20</div>
+								<div class="dt-gr">
+									<div class="month">Gusht</div>
+									<div class="year">2020</div>
+								</div>
+							</div>
+							<div class="art-body">
+								<div class="departament"><a href="#">DII</a></div>
+								<!-- <hr> -->
+								<div class="art-title"><a href="#">the title</a></div>
+								<div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ipsum, hic sint quia modi omnis. Illo tempore ipsa asperiores voluptatibus?</div>	
+							</div>
+						</div><div class="article">
+							<div class="date-pub">
+								<div class="date">20</div>
+								<div class="dt-gr">
+									<div class="month">Gusht</div>
+									<div class="year">2020</div>
+								</div>
+							</div>
+							<div class="art-body">
+								<div class="departament"><a href="#">DII</a></div>
+								<!-- <hr> -->
+								<div class="art-title"><a href="#">the title</a></div>
+								<div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ipsum, hic sint quia modi omnis. Illo tempore ipsa asperiores voluptatibus?</div>	
+							</div>
+						</div><div class="article">
+							<div class="date-pub">
+								<div class="date">20</div>
+								<div class="dt-gr">
+									<div class="month">Gusht</div>
+									<div class="year">2020</div>
+								</div>
+							</div>
+							<div class="art-body">
+								<div class="departament"><a href="#">DII</a></div>
+								<!-- <hr> -->
+								<div class="art-title"><a href="#">the title</a></div>
+								<div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ipsum, hic sint quia modi omnis. Illo tempore ipsa asperiores voluptatibus?</div>	
 							</div>
 						</div>
-						<!-- {% endfor %} -->
-					</div>
-				</div>
+						<!--  -->
+					</div> <!-- end of article group -->
+				</div> <!-- end of articles -->
+			</div> <!-- end of events -->
+		</div> <!-- end of calendar wrapper -->
+		<div class="row">
+			<div class="grid grid_4">
+				<a href="#" class="service"><i class="fas fa-sign-in-alt"></i> Students Platform</a>
+			</div>
+			<div class="grid grid_4">
+				<a href="#" class="service"><i class="fas fa-calendar-alt"></i> Oraret</a>
+			</div>
+			<div class="grid grid_4">
+				<a href="#" class="service"><i class="fas fa-book"></i> Biblioteka online</a>
 			</div>
 		</div>
 	</section><!-- end content area -->	

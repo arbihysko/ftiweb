@@ -1,6 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic.base import View
 
-class HomeTemplateView(TemplateView):
-	template_name = 'home/index.html'
+class HomeView(View):
+	def get(self, request, *args, **kwargs):
+		context = {}
+		context['title'] = 'FTI | Fakulteti i Teknologjise se Informacionit'
+		return render(request, 'home/index.html', context)

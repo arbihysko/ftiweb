@@ -8,7 +8,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>{{ title }}</title>
+	<title>{% if title %}{{ title }}{% else %}FTI | Fakulteti i Teknologjise se Informacionit{% endif %}</title>
 	<meta name="description" content="Faqja zyrtare e Fakultetit te Teknologjise se Informacionit.">
 	<meta name="keywords" content="UPT, FTI, Univesiteti Politeknik i Tiranes, Fakulteti i Teknologjise se Informacionit">
 
@@ -34,112 +34,117 @@
 	<header>
 		<div class="wrap clearfix">
 			<!-- Navbar logo -->
-			<div class="logo"><a href="#"><img src="{% static 'images/fti_l.png' %}" alt="Fti Logo"></a></div>
+			<div class="logo">
+				<a href="{% url 'home' %}"><img src="{% static 'images/fti_l.png' %}" alt="Fti Logo"></a>
+			</div>
 			<!-- menu toggle -->
 			<ul class="menu_toggle">
-				<li><a class="search_tog" href="#"><i class="fas fa-search"></i></a></li>
-				<li><a id="menu_toggle" href="#"><i class="fas fa-bars"></i></a></li>
+				<li>
+					<a class="search_tog" href="#"><i class="fas fa-search"></i></a>
+				</li>
+				<li>
+					<a id="menu_toggle" href="#"><i class="fas fa-bars"></i></a>
+				</li>
 			</ul>
-			<!-- Navbar Menu start -->
-			<nav>
+			<!-- Navbar Menu start --> 
+			<nav> 
+				<!-- nav list -->
 				<ul>
-					<li>
-						<!-- Home link -->
+					<li> 
+						<!-- Home link --> 
 						<a data-name="home" class="navlink" href="#">Fakulteti</a>
-						<!-- Home dropdown -->
-						<ul class="drop">
+						<!-- Home dropdown--> 
+						<ul class="drop"> 
 							<li><a href="#">Misioni FTI</a></li>
 							<li><a href="#">Dekani</a></li>
-							<li><a href="#">Administrata</a></li>
-							<li><a href="#">Departamentet</a></li>
-							<li><a href="#">Partneritete</a></li>
-							<li><a href="#">Marredhenie me publikun</a></li>
+							<li><a href="#">Administrata</a></li> 
+							<li><a href="#">Departamentet</a></li> 
+							<li><a href="#">Partneritete</a></li> 
+							<li><a href="#">Marredhenie me publikun</a></li> 
 							<li><a href="#">Galeria</a></li>
-						</ul>
-					</li>
-					<li>
-						<!-- Programs link -->
-						<a data-name="programe" class="navlink" href="#">Programe</a>
-						<ul class="drop">
-							<!-- Programs dropdown -->
-							<li>
-								<a class="opt_link navlink" href="#">Bachelor <i class="fas fa-chevron-right"></i></a>
-								<!-- Bachelor options -->
-								<ul class="opt">
-									<li><a href="#">Inxhinieri Informatike</a></li>
-									<li><a href="#">Inxhinieri Elektronike</a></li>
+						</ul> 
+					</li> 
+					<li> 
+						<!-- Programs link --> 
+						<a data-name="programe" class="navlink" href="#">Programe</a> 
+						<ul class="drop"> 
+							<!-- Programs dropdown --> 
+							<li> <a class="opt_link navlink" href="#">Bachelor <i class="fas fa-chevron-right"></i></a> 
+								<!-- Bachelor options --> 
+								<ul class="opt"> 
+									<li><a href="#">Inxhinieri Informatike</a></li> 
+									<li><a href="#">Inxhinieri Elektronike</a></li> 
 									<li><a href="#">Inxhinieri Telekomunikacioni</a></li>
-								</ul>
-							</li>
-							<li>
-								<a class="opt_link navlink" href="#">Master <i class="fas fa-chevron-right"></i></a>
-								<!-- Master Options -->
-								<ul class="opt">
-									<li><a href="#">Master Shkencor Ing Informatike</a></li>
-									<li><a href="#">Master Profesional Ing Informatike</a></li>
-									<li><a href="#">Master Shkencor Ing Elektronike</a></li>
-									<li><a href="#">Master Shkencor Ing Telekomunikacioni</a></li>
-								</ul>
-							</li>
+								</ul> 
+							</li> 
+							<li> <a class="opt_link navlink" href="#">Master <i class="fas fa-chevron-right"></i></a> 
+								<!-- Master Options --> 
+								<ul class="opt"> 
+									<li><a href="#">Master Shkencor Ing Informatike</a></li> 
+									<li><a href="#">Master Profesional Ing Informatike</a></li> 
+									<li><a href="#">Master Shkencor Ing Elektronike</a></li> 
+									<li><a href="#">Master Shkencor Ing Telekomunikacioni</a></li> 
+								</ul> 
+							</li> 
 							<li><a href="#">Doktoratura</a></li>
-						</ul>
-					</li>
-					<li>
-						<a data-name="student" class="navlink" href="#">Studentet</a>
-						<ul class="drop">
+						</ul> 
+					</li> 
+					<li> 
+						<a data-name="student" class="navlink" href="#">Studentet</a> 
+						<ul class="drop"> 
 							<li><a href="#">Kryesia</a></li>
-							<li><a href="#">Keshilli Studentor</a></li>
-							<li>
-								<a class="opt_link navlink" href="#">Orientimi <i class="fas fa-chevron-right"></i></a>
+							<li><a href="#">Keshilli Studentor</a></li> 
+							<li> 
+								<a class="opt_link navlink" href="#">Orientimi <i class="fas fa-chevron-right"></i></a> 
 								<ul class="opt">
-									<!-- Orientimi Options -->
+									<!-- Orientimi Options --> 
 									<li><a href="#">Shebimi i Karrieres</a></li>
-									<li><a href="#">Takimi me kompanite</a></li>
-									<li><a href="#">Praktika</a></li>
-									<li><a href="#">Tregu i punes</a></li>
-								</ul>
+									<li><a href="#">Takimi me kompanite</a></li> 
+									<li><a href="#">Praktika</a></li> 
+									<li><a href="#">Tregu i punes</a></li> 
+								</ul> 
 							</li>
-							<li><a href="#">Bursa</a></li>
-							<li><a href="#">Sekretaria</a></li>
-							<li>
-								<a  class="opt_link navlink" href="#">Kalendari <i class="fas fa-chevron-right"></i></a>
-								<ul class="opt">
-									<!-- Calendar Options -->
-									<li><a href="#">Njoftime</a></li>
-									<li><a href="#">Provimet</a></li>
-								</ul>
+							<li><a href="#">Bursa</a></li> 
+							<li><a href="#">Sekretaria</a></li> 
+							<li> 
+								<a class="opt_link navlink" href="#">Kalendari <i class="fas fa-chevron-right"></i></a> 
+								<ul class="opt"> 
+									<!-- Calendar Options --> 
+									<li><a href="#">Njoftime</a></li> 
+									<li><a href="#">Provimet</a></li> 
+								</ul> 
 							</li>
-							<li><a href="#">Orari</a></li>
-						</ul>
+							<li><a href="#">Orari</a></li> 
+						</ul> 
+					</li> 
+					<li> 
+						<a data-name="research" class="navlink" href="#">Research</a> 
+						<ul class="drop"> 
+							<li><a href="#">Arritjet</a></li> 
+							<li><a href="#">Fushat e Kerkimit</a></li> 
+							<li><a href="#">Biblioteka</a></li> 
+							<li><a href="#">Laboratoret</a></li> 
+						</ul> 
 					</li>
-					<li>
-						<a data-name="research" class="navlink" href="#">Research</a>
-						<ul class="drop">
-							<li><a href="#">Arritjet</a></li>
-							<li><a href="#">Fushat e Kerkimit</a></li>
-							<li><a href="#">Biblioteka</a></li>
-							<li><a href="#">Laboratoret</a></li>
-						</ul>
-					</li>
-					<li>
-						<a class="search navlink" href="javascript:void(0)"><i class="fas fa-search"></i></a>
-						<!-- search popup -->
-						<div class="search-popup">
-							<form action="#" method="GET">
-								<input type="text" placeholder="Kerko..">
-								<i class="fas fa-times"> </i>
-							</form>
-						</div>
-						<!-- end of Search -->
-					</li>
+					<li> 
+						<a class="search navlink" href="javascript:void(0)"><i class="fas fa-search"></i></a> 
+						<!-- search popup --> 
+						<div class="search-popup"> 
+							<form action="#" method="GET"> 
+								<input type="text" placeholder="Kerko.."> 
+								<i class="fas fa-times"></i> 
+							</form> 
+						</div><!-- end of Search --> 
+					</li> 
 				</ul>
-			</nav>
-		</div>
-	</header>
+			</nav><!-- end of navbar -->
+		</div><!-- end of wrap -->
+	</header><!-- end of header -->
 
 
 	{% block page %}
 
+	<!-- shift content for navbar -->
 	<div class="shift"></div>	
 	<!-- main content area -->	 
 	<div id="main" class="wrapper">
