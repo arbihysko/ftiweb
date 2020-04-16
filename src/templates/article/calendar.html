@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- calendar wrapper -->
+<div class="calendar_wrapper" id="calendar">
+	<!-- calendar + events -->
+	<div class="events clearfix">
+		<!-- calendar div -->
+		<div class="calendar">
+			<!-- the year header in months -->
+			<ul class="months">
+				<li class='yeartab'>
+					<div data-move='prev' class='ym left'>
+						<span><i class='fas fa-chevron-left'></i></span>
+					</div>
+					<!-- year number -->
+					<div class='year'></div>
+					<div data-move='next' class='ym right'>
+						<span><i class='fas fa-chevron-right'></i></span>
+					</div>
+				</li>
+			</ul> <!-- year header end -->
+			<!-- the background image -->
+			<img alt="month_bg">
+			<!-- the main header of calendar -->
+			<div class="header">
+				<div data-move="prev" class="mc left"><span><i class="fas fa-chevron-left"></i></span></div>
+				<!-- month number -->
+				<div class="month"></div>
+				<div data-move="next" class="mc right"><span><i class="fas fa-chevron-right"></i></span></div>					
+			</div> <!-- end of the header -->
+			<div class="year"></div> <!-- year number -->
+			<!-- starting body of the calendar -->
+			<div class="body">
+				<!-- week days -->
+				<ul class="day weekdays">
+					<li>H</li>
+					<li>M</li>
+					<li>M</li>
+					<li>E</li>
+					<li>P</li>
+					<li>Sh</li>
+					<li>D</li>
+				</ul> <!-- end of weekdays -->
+				<ul class="day days"></ul><!-- the days -->
+			</div> <!-- end of calendar body -->
+		</div> <!-- end of calendar -->
+
+		<!-- article divider -->
+		<div class="articles">
+			<!-- the article group -->
+			<div class="article-gr">
+				{% for article in articles %}
+				<!-- article link -->
+				<a href="#">
+					<!-- one article -->
+					<div class="article">
+						<!-- publication date -->
+						<div class="date-pub">
+							<!-- date -->
+							<div class="date">20</div>
+							<!-- month and year -->
+							<div class="dt-gr">
+								<!-- month -->
+								<div class="month">Gusht</div>
+								<!-- year -->
+								<div class="year">2020</div>
+							</div>
+						</div><!-- end of publication date -->
+						<!-- article body -->
+						<div class="art-body">
+							<!-- department -->
+							<span class="departament">{{article.department.get_choises_display}}</span>
+							<!-- title of the article -->
+							<h2 class="art-title">{{article.title}}</h2>
+							<!-- description of the article -->
+							<p class="description">{{article.content}}</p>
+						</div> <!-- end of article body -->
+					</div> <!-- end of article -->
+				</a> <!-- end of article link -->
+				{% endfor %}
+			</div> <!-- end of article group -->
+		</div> <!-- end of articles -->
+	</div> <!-- end of events -->
+</div> <!-- end of calendar wrapper -->
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static 'js/calendar.js' %}"></script>
+{% endblock %}

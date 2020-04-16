@@ -95,6 +95,7 @@
 				</div>
 			</a>
 		</div><!-- end row -->
+		<!-- calendar wrapper -->
 		<div class="calendar_wrapper" id="calendar">
 			<!-- calendar + events -->
 			<div class="events clearfix">
@@ -143,6 +144,7 @@
 				<div class="articles">
 					<!-- the article group -->
 					<div class="article-gr">
+						{% for article in articles %}
 						<!-- article link -->
 						<a href="#">
 							<!-- one article -->
@@ -162,87 +164,15 @@
 								<!-- article body -->
 								<div class="art-body">
 									<!-- department -->
-									<span class="departament">DII</span>
+									<span class="departament">{{article.department.get_choises_display}}</span>
 									<!-- title of the article -->
-									<h1 class="art-title">the title</h1>
+									<h2 class="art-title">{{article.title}}</h2>
 									<!-- description of the article -->
-									<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ipsum, hic sint quia modi omnis. Illo tempore ipsa asperiores voluptatibus?</p>
+									<p class="description">{{article.content}}</p>
 								</div> <!-- end of article body -->
 							</div> <!-- end of article -->
 						</a> <!-- end of article link -->
-						
-						<div class="article">
-							<div class="date-pub">
-								<div class="date">20</div>
-								<div class="dt-gr">
-									<div class="month">Gusht</div>
-									<div class="year">2020</div>
-								</div>
-							</div>
-							<div class="art-body">
-								<div class="departament"><a href="#">DII</a></div>
-								<!-- <hr> -->
-								<div class="art-title"><a href="#">the title</a></div>
-								<div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ipsum, hic sint quia modi omnis. Illo tempore ipsa asperiores voluptatibus?</div>	
-							</div>
-						</div><div class="article">
-							<div class="date-pub">
-								<div class="date">20</div>
-								<div class="dt-gr">
-									<div class="month">Gusht</div>
-									<div class="year">2020</div>
-								</div>
-							</div>
-							<div class="art-body">
-								<div class="departament"><a href="#">DII</a></div>
-								<!-- <hr> -->
-								<div class="art-title"><a href="#">the title</a></div>
-								<div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ipsum, hic sint quia modi omnis. Illo tempore ipsa asperiores voluptatibus?</div>	
-							</div>
-						</div><div class="article">
-							<div class="date-pub">
-								<div class="date">20</div>
-								<div class="dt-gr">
-									<div class="month">Gusht</div>
-									<div class="year">2020</div>
-								</div>
-							</div>
-							<div class="art-body">
-								<div class="departament"><a href="#">DII</a></div>
-								<!-- <hr> -->
-								<div class="art-title"><a href="#">the title</a></div>
-								<div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ipsum, hic sint quia modi omnis. Illo tempore ipsa asperiores voluptatibus?</div>	
-							</div>
-						</div><div class="article">
-							<div class="date-pub">
-								<div class="date">20</div>
-								<div class="dt-gr">
-									<div class="month">Gusht</div>
-									<div class="year">2020</div>
-								</div>
-							</div>
-							<div class="art-body">
-								<div class="departament"><a href="#">DII</a></div>
-								<!-- <hr> -->
-								<div class="art-title"><a href="#">the title</a></div>
-								<div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ipsum, hic sint quia modi omnis. Illo tempore ipsa asperiores voluptatibus?</div>	
-							</div>
-						</div><div class="article">
-							<div class="date-pub">
-								<div class="date">20</div>
-								<div class="dt-gr">
-									<div class="month">Gusht</div>
-									<div class="year">2020</div>
-								</div>
-							</div>
-							<div class="art-body">
-								<div class="departament"><a href="#">DII</a></div>
-								<!-- <hr> -->
-								<div class="art-title"><a href="#">the title</a></div>
-								<div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ipsum, hic sint quia modi omnis. Illo tempore ipsa asperiores voluptatibus?</div>	
-							</div>
-						</div>
-						<!--  -->
+						{% endfor %}
 					</div> <!-- end of article group -->
 				</div> <!-- end of articles -->
 			</div> <!-- end of events -->
@@ -264,5 +194,6 @@
 {% endblock %}
 {% block scripts %}
 <script defer src="{% static 'js/flexslider/jquery.flexslider-min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/flexslider.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/calendar.js' %}"></script>
 {% endblock %}

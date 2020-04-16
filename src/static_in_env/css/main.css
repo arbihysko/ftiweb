@@ -625,7 +625,7 @@ footer ul .gather {
 	}
 
 	.shift {
-		height: 80px;
+		height: 100px;
 	}
 
 	.article .date-pub {
@@ -971,11 +971,10 @@ footer ul .gather {
 	}
 	
 	.thumbnail{
-		transition: .2s ease;
+		transition: transform .2s;
 	}
 	.thumbnail:hover {
 		transform: translateY(-2em);
-		box-shadow: 0 5px 10px 1px rgba(0,0,0,.2);
 	}
 
 	/*.rightfloat{float:right;}*/

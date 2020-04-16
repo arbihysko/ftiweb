@@ -71,14 +71,6 @@ $(document).ready(function(){
 		});
 	}
 
-	// initialise  slideshow
-	$('.flexslider').flexslider({
-		animation: "slide",
-		start: function(slider){
-			$('body').removeClass('loading');
-		}
-	});
-
 	// Get the element to focus
 	function findNavLink(name){
 		var link = $(".navlink[data-name='"+name+"']");

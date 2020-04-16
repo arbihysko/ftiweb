@@ -81,24 +81,21 @@ $(function(){
 
 	// prepares the html string for the calendar events
 	function prepareDataString(data){
-		data = JSON.parse(data);
 		var data_str = "";
 		for (var i = 0; i < data.length; i++) {
-			data_str += "<div class='article'><div class='date-pub'>";
+			data_str += "<a href='#'><div class='article'><div class='date-pub'>";
 			var dt_str = data[i].pub_date;
 			var index = dt_str.indexOf("T");
 			dt_str = dt_str.substr(0, index);
 			var dt = dt_str.split("-");
 			var dep = (data[i].department == "DII") ? dept[0] : (data[i].department == "DET") ? dept[1] : dept[2];
 			data_str += "<div class='date'>"+ dt[2] +"</div><div class='dt-gr'><div class='month'>" + months[dt[1]-1] + "</div><div class='year'>"+ dt[0] +"</div></div></div>";
-			data_str += "<div class='art-body'><div class='departament'><a href='#'>"+ dep +"</a></div>";
-			data_str += "<hr><div class='art-title'><a href='{% url 'article-post-detail' event.pk %}'>"+ data[i].title +"</a></div>";
-			if(data[i].content!=""){
-				data_str += "<div class='description'>"+ data[i].content +"</div>";
-			}
-			data_str += "</div></div>";
+			data_str += "<div class='art-body'>";
+			data_str += "<h2 class='art-title'>"+ data[i].title +"</h2>";
+			data_str += "<p class='description'>"+ data[i].content +"</p>";
+			data_str += "</div></div></a>";
 		}
-		return (data_str==""?"<h3 style='font:inherit;color:#444;text-align:center'>Nuk ka asnji postim</h3>":data_str)
+		return (data_str==""?"<h3>Nuk ka asnji postim</h3>":data_str)
 	}
 
 	// ajax to get months data and more
@@ -199,18 +196,22 @@ $(function(){
 	// get events for the day when clicking on a day link
 	$(".calendar .days").on('click', "li a", function(e){
 		e.preventDefault();
-		// console.log(this.getAttribute('href'));
+		var href = this.getAttribute('href');
+		href = href.split('/');
+		var url = window.location.href + "api/" + href[2];
+		console.log(url);
 		$.ajax({
-			url: window.location.origin + "/api" + this.getAttribute('href'),
+			url: url,
 			type: 'get',
 			success: function(data){
+				console.log(data);
 				$(".article-gr").fadeOut(150);
 				setTimeout(function(){
 					$('.article-gr')[0].innerHTML = prepareDataString(data);
 					$(".article-gr").fadeIn(200);
 				}, 150);
 			},
-			failure: function(data){
+			error: function(data){
 				console.log("fail")
 			}
 		})

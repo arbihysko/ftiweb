@@ -5,7 +5,8 @@ from home.views import HomeView
 from django.urls import path, include
 
 urlpatterns = [
-	path('', HomeView.as_view(), name="home"),
+	path('', HomeView.as_view(), name='home'),
+	path('events/', include('article.urls')),
     path('admin/', admin.site.urls),
 ]
 
