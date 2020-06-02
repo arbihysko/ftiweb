@@ -68,7 +68,7 @@ $(function(){
 		for(i=1; i<=endDate; i++){
 			// this will set the days of the calendar and when it reaches the todays date will add to it the classes focusDay and today
 			// every day has a link to it that goes to the events of that day and has attribute data-day set to the day in format yyyy-mm-dd
-			cells += (i==td.getDate()&&dt.getMonth()==td.getMonth()&&dt.getYear()==td.getYear()?"<li class='today focusDay'>":"<li data-day='"+ (dt.getYear()+1900) +"-"+ (dt.getMonth()+1) +"-"+ (i<10?("0"+i):i) +"'>") + "<a href='/calendar/?date="+ (dt.getYear()+1900) +"-"+ (dt.getMonth()+1) +"-"+ i +"'>" + i + "</a></li>";
+			cells += (i==td.getDate()&&dt.getMonth()==td.getMonth()&&dt.getYear()==td.getYear()?"<li class='today focusDay'>":"<li data-day='"+ (dt.getYear()+1900) +"-"+ (dt.getMonth()+1) +"-"+ (i<10?("0"+i):i) +"'>") + "<a href='/events/calendar/?date="+ (dt.getYear()+1900) +"-"+ (dt.getMonth()+1) +"-"+ i +"'>" + i + "</a></li>";
 		}
 		for(i=1; i<=43-(day==0?7:day)-endDate;i++){
 			cells += "<li class='next_day'>" + i + "</li>"; // the next months days
@@ -101,14 +101,17 @@ $(function(){
 	// ajax to get months data and more
 	function ajaxGetCalendarEvent(url, time=0){
 		$.ajax({
-			url: window.location.origin + url,
+			url: url,
 			type: 'get',
 			success: function(data){
-				console.log($('.articles .heading li a')[0].href += '?month='+ (dt.getMonth()+1) + '&year=' + (dt.getYear()+1900));
+				// console.log($('.articles .heading li a')[0].href += '?month='+ (dt.getMonth()+1) + '&year=' + (dt.getYear()+1900));
 				$(".article-gr").fadeOut(150);
 				// wait for the calendar to be rendered
+
 				setTimeout(function(){
+					console.log(1+data)
 					$('.article-gr')[0].innerHTML = prepareDataString(data); // display the events
+					$(".article-gr").fadeIn(200);
 					data = JSON.parse(data); // parse the data that came in JSON format
 					for (var i = 0; i < data.length; i++) {
 						// get the date of each event
@@ -144,7 +147,7 @@ $(function(){
 	$('.articles .heading li a').on('click', function(e) {
 		e.preventDefault();
 		url = this.getAttribute('href');
-		console.log(url);
+		// console.log(url);
 		ajaxGetCalendarEvent(url);
 	});
 
@@ -159,7 +162,7 @@ $(function(){
 	// event when clicking days on the calendar
 	// selector for only the current months days
 	$(".calendar .days").on("click", "li:not(.next_day, .prev_day)", function(e){
-		$(".focusDay").removeClass("focusDay"); // remove focur from previous focused day
+		$(".focusDay").removeClass("focusDay"); // remove focus from previous focused day
 		this.classList.add('focusDay'); // addes focus to the clicked day
 	});
 
@@ -198,23 +201,23 @@ $(function(){
 		e.preventDefault();
 		var href = this.getAttribute('href');
 		href = href.split('/');
-		var url = window.location.href + "api/" + href[2];
-		console.log(url);
-		$.ajax({
-			url: url,
-			type: 'get',
-			success: function(data){
-				console.log(data);
-				$(".article-gr").fadeOut(150);
-				setTimeout(function(){
-					$('.article-gr')[0].innerHTML = prepareDataString(data);
-					$(".article-gr").fadeIn(200);
-				}, 150);
-			},
-			error: function(data){
-				console.log("fail")
-			}
-		})
+		var url = window.location.href + "api/" + href[3];
+		ajaxGetCalendarEvent(url);
+		// console.log(url);
+		// $.ajax({
+		// 	url: url,
+		// 	type: 'get',
+		// 	success: function(data){
+		// 		console.log(data);
+		// 		$(".article-gr").fadeOut(150);
+		// 		setTimeout(function(){
+		// 			$('.article-gr')[0].innerHTML = prepareDataString(data);
+		// 			$(".article-gr").fadeIn(200);
+		// 		}, 150);
+		// 	},
+		// 	error: function(data){
+		// 		console.log("fail")
+		// 	}
+		// })
 	});
-
 })

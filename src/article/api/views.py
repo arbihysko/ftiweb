@@ -5,17 +5,22 @@ from datetime import date
 
 class ArticleAPIView(ListAPIView):
 	def get_queryset(self):
+		articles = Article.objects.all()
 		if 'date' in self.request.query_params:
 			dt = self.request.query_params['date']
-			day = date(dt)
-			print(date)
-			try:
-				queryset = Article.objects.filter(pub_date__date = day)
-				pass
-			except Exception as e:
-				raise e
-			return queryset
+			dt = dt.split('-')
+			dt = list(map(int, dt))
+			day = date(dt[0], dt[1], dt[2])
+			articles = articles.filter(pub_date__date = day)
+		elif 'month' in self.request.query_params and 'year' in self.request.query_params:
+			month = self.request.query_params['month']
+			year = self.request.query_params['year']
+			month = int(month)
+			year = int(year)
+			articles = articles.filter(pub_date__month=month, pub_date__year=year)
 		else:
-			return Article.objects.all()[:5]
+			articles = articles[:5]
+
+		return articles
 
 	serializer_class = ArticleSerializer
